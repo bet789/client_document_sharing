@@ -1,0 +1,85 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* css login page */
+.login-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  margin: 0 !important;
+  background-color: #001529;
+}
+
+.container-login {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 12px;
+  width: 70%;
+  min-height: 80vh;
+  background-color: #ffffffe8;
+  border: 2px solid #001529;
+}
+
+.img-login img {
+  width: 100%;
+  height: 100%;
+  animation: animation-img-login 5s linear infinite;
+}
+
+.header nav {
+  height: 100%;
+}
+
+.header-main {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+  background-color: #001529;
+
+}
+
+.top-header {
+  width: 100%;
+  height: 20px;
+  background-color: black;
+}
+
+.logo {
+  height: 100%;
+  padding: 5px 0;
+}
+
+.header-main .ant-space-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+}
