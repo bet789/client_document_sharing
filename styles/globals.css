@@ -17,6 +17,31 @@ a {
   padding: 0;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.footer {
+  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 5px 0;
+  font-size: 12px;
+  background-color: #001529;
+}
+
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 92vh;
+}
+
 /* css login page */
 .login-pages {
   display: flex;
@@ -82,4 +107,74 @@ a {
 .logo img {
   width: 100%;
   height: 100%;
+}
+
+.wrapper {
+  padding: 10px;
+  min-height: 92vh;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card-post .ant-card-body {
+  padding: 12px;
+}
+
+.card-post .ant-card-cover {
+  background-color: #001529;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-post .ant-card-meta-title {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0 !important;
+}
+
+.card-post .ant-card-meta-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-post .date-post {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.center-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box-posts {
+  width: 100%;
+}
+
+.side-bar-post,
+.side-bar-category {
+  border-left: 1px solid #c2c2c2;
+}
+
+.img-post-sidebar {
+  border-radius: 6px 0 0 6px;
+}
+
+.item-post-sidebar:hover .img-post-sidebar {}
+
+.description-post-sidebar {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  margin-bottom: 0 !important;
 }

@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [""],
+    domains: ["media.bet789.mobi"],
   },
   webpack5: true,
   webpack: (config) => {

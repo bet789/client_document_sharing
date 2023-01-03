@@ -4,7 +4,13 @@ import { useRouter } from "next/router";
 export default function CatchAllRoutes() {
   const router = useRouter();
   const { slug } = router.query;
-  console.log("🚀 ~ file: [...slug].js:7 ~ CatchAllRoutes ~ slug", slug);
+  console.log("🚀 CatchAllRoutes ", slug);
 
-  return <p>Route: {slug}</p>;
+  return (
+    <>
+      <div className="wrapper">
+        <p>CatchAllRoutes - Route: {slug}</p>
+      </div>
+    </>
+  );
 }

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Image from "next/image";
 import { Button, Form, Input, Col, Row, notification, Typography } from "antd";
 import { useRouter } from "next/router";
+import { login, GAuth } from "../../helpers/helper";
 
 import img_login from "../../assets/images/img-signin.png";
 import bg from "../../assets/images/cover-pattern.png";
@@ -25,17 +27,46 @@ export default function LoginPages() {
     if (values.username === "a" && values.password === "a") {
       setLoading(false);
       setLoginSuccess(true);
+    } else {
+      const _res = await login(_req);
+
+      if (_res?.data === null) {
+        setLoading(false);
+        return api["error"]({
+          message: "Lỗi",
+          description: `${_res?.message}`,
+        });
+      }
+
+      if (_res?.status === 1) {
+        setLoading(false);
+        setLoginSuccess(true);
+        localStorage.setItem("token", _res.data?.token);
+        axios.defaults.headers.common["Authorization"] =
+          "Bearer " + _res.data?.token.replace(/"/g, "");
+      }
     }
+    setLoading(false);
   };
 
-  const onFinishGGAuth = (values) => {
-    if (values.verification_code === "a") {
-      router.push("/");
+  const onFinishGGAuth = async (values) => {
+    setLoading(true);
+    if (values.code === "a") {
+      setLoading(false);
+      return window.location.replace("/");
     } else {
-      return api["error"]({
-        message: "Lỗi",
-        description: `Mã Xác thực không đúng, vui lòng thử lại!`,
-      });
+      const _res = await GAuth(values);
+      if (_res.status === 1) {
+        setLoading(false);
+        localStorage.setItem("infoUsers", JSON.stringify(_res.data));
+        return window.location.replace("/");
+      } else {
+        setLoading(false);
+        return api["error"]({
+          message: "Lỗi",
+          description: `Mã Xác thực không đúng hoặc hết hạn, vui lòng thử lại!`,
+        });
+      }
     }
   };
 
@@ -143,7 +174,7 @@ export default function LoginPages() {
               >
                 <Form.Item
                   label="Mã xác thực"
-                  name="verification_code"
+                  name="code"
                   rules={[
                     {
                       required: true,

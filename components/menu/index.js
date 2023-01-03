@@ -1,14 +1,15 @@
 import React from "react";
+import Link from "next/link";
 
 function MenuComponents({ menu }) {
   const renderMenu = (items) => {
     return items?.map((item) => {
       return (
-        <li key={item.key}>
-          <a href={item.path}>{item.label}</a>
-          {item.childrens && item.childrens.length > 0 ? (
+        <li key={item.id}>
+          <Link href={`/category/${item.id}`}>{item.name}</Link>
+          {item.children && item.children.length > 0 ? (
             <ul key={Math.random()}>
-              {item.childrens ? renderMenu(item.childrens) : null}
+              {item.children ? renderMenu(item.children) : null}
             </ul>
           ) : null}
         </li>
