@@ -50,12 +50,6 @@ export default function Header() {
 
   return (
     <div className="header">
-      {/* <div>
-        <p>You clicked {count} times</p>
-        <button onClick={() => setCount(count + 1)}>Click me</button>
-      </div> */}
-
-      {/* <div className="top-header"></div> */}
       <Space className="header-main">
         <div className="logo">
           <Link href="/">
