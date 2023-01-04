@@ -4,11 +4,11 @@ const nextConfig = {
   images: {
     domains: ["media.bet789.mobi"],
   },
-  webpack5: true,
-  webpack: (config) => {
-    config.resolve.fallback = { fs: false };
-    return config;
-  },
+  // webpack5: true,
+  // webpack: (config) => {
+  //   config.resolve.fallback = { fs: false };
+  //   return config;
+  // },
 };
 
 module.exports = nextConfig;
