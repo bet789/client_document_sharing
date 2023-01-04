@@ -18,8 +18,30 @@ export default function Header() {
   }, []);
 
   const fetchDataMenu = async () => {
+    var arrMenu = [];
+    var arrBranch = [];
     const _res = await getMenu();
-    setMenuHeader(_res);
+    _res.forEach((element) => {
+      if (arrBranch.includes(element.branchName)) return;
+      arrBranch.push(element.branchName);
+    });
+
+    arrBranch.forEach((item) => {
+      var obj = {};
+      obj.id = item;
+      obj.isBranch = true;
+      obj.name = item;
+      obj.children = [];
+      _res?.forEach((itemMenu) => {
+        console.log(itemMenu.branchName.toUpperCase());
+        if (itemMenu.branchName.toUpperCase() === item.toUpperCase())
+          obj.children.push(itemMenu);
+      });
+
+      arrMenu.push(obj);
+    });
+
+    setMenuHeader(arrBranch?.length === 1 ? _res : arrMenu);
   };
 
   const onSearch = (value) => {

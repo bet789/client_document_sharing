@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Col, Divider, Row, Spin } from "antd";
+import { Col, Row } from "antd";
 import useSWR from "swr";
 import axios from "axios";
 import qs from "qs";
@@ -38,6 +38,10 @@ export default function Home(props) {
       arrSkeleton.push(<SkeletonPost key={i} />);
     }
     return arrSkeleton;
+  };
+
+  const onChange = (key) => {
+    console.log(key);
   };
 
   return (

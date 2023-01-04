@@ -75,6 +75,11 @@ main {
   height: 100%;
 }
 
+.header {
+
+  background-color: #001529;
+}
+
 .header-main {
   height: 50px;
   width: 100%;
@@ -84,6 +89,8 @@ main {
   padding: 0 12px;
   box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
   background-color: #001529;
+  /* max-width: 1620px; */
+  margin: 0 auto;
 
 }
 
@@ -112,7 +119,8 @@ main {
 .wrapper {
   padding: 10px;
   min-height: 92vh;
-  max-width: 1920px;
+  /* max-width: 1920px; */
+  max-width: 1620px;
   margin: 0 auto;
   width: 100%;
 }

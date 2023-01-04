@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Row, Col, Typography, Space } from "antd";
-import { CalendarOutlined, UserOutlined } from "@ant-design/icons";
+import { ClockCircleOutlined, UserOutlined } from "@ant-design/icons";
 import axios from "axios";
 import dayjs from "dayjs";
 import { getPostById, getPostPaging } from "../../helpers/helper";
 import ItemPostSidebar from "../../components/itemPostSidebar";
+import Image from "next/legacy/image";
 
 const { Title, Paragraph } = Typography;
 
@@ -66,9 +67,12 @@ export default function PostDetailPages(props) {
         <Row xl={24} gutter={[16, 16]}>
           <Col xl={18}>
             <Title level={2}>{dataPost?.title}</Title>
-            <Space size={"middle"}>
+            <Space
+              size={"middle"}
+              style={{ display: "flex", alignItems: "center" }}
+            >
               <Space align="midle" size={5}>
-                <CalendarOutlined />
+                <ClockCircleOutlined />
                 <Paragraph>
                   {dayjs(dataPost?.createdTime).format("DD/MM/YYYY")}
                 </Paragraph>
@@ -80,6 +84,14 @@ export default function PostDetailPages(props) {
               </Space>
             </Space>
             <Paragraph italic>{dataPost?.description}</Paragraph>
+            <Image
+              src={dataPost?.thumbnail}
+              alt=""
+              layout="responsive"
+              objectFit="contain"
+              height={35}
+              width={"100%"}
+            />
             <div
               className="post-content"
               dangerouslySetInnerHTML={{ __html: dataPost?.content }}

@@ -1,7 +1,11 @@
 import Link from "next/link";
 import React from "react";
-import { Row, Col, Typography } from "antd";
 import Image from "next/legacy/image";
+import dayjs from "dayjs";
+import { Row, Col, Typography, Space } from "antd";
+import { ClockCircleOutlined } from "@ant-design/icons";
+
+const { Title, Paragraph } = Typography;
 
 export default function ItemPostSidebar(props) {
   const { data } = props;
@@ -29,6 +33,19 @@ export default function ItemPostSidebar(props) {
           <Typography.Paragraph className="description-post-sidebar">
             {data.description}
           </Typography.Paragraph>
+          <Space
+            align="midle"
+            size={5}
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <ClockCircleOutlined style={{ fontSize: 14 }} />
+            <Paragraph style={{ fontSize: 12, marginBottom: 0 }}>
+              {dayjs(data?.createdTime).format("DD/MM/YYYY")}
+            </Paragraph>
+          </Space>
         </Col>
       </Row>
     </Link>
