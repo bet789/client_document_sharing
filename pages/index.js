@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Head from "next/head";
 import { Col, Divider, Row, Spin } from "antd";
 import useSWR from "swr";
 import axios from "axios";
@@ -43,11 +42,6 @@ export default function Home(props) {
 
   return (
     <>
-      <Head>
-        <title>Chia sẻ tài liệu nội bộ</title>
-        <meta name="description" content="Chia sẻ tài liệu nội bộ" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div className="wrapper">
         <Row gutter={[16, 16]}>
           <Col span={24} className="center-center">

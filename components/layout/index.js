@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Header from "../header";
 import Footer from "../footer";
 import { FloatButton, Tooltip } from "antd";
@@ -13,6 +14,11 @@ export default function Layout({ children }) {
   };
   return (
     <>
+      <Head>
+        <title>Chia sẻ tài liệu nội bộ</title>
+        <meta name="description" content="Chia sẻ tài liệu nội bộ" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
       <main>{children}</main>
       <FloatButton.Group
