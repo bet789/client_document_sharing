@@ -33,7 +33,6 @@ export default function Header() {
       obj.name = item;
       obj.children = [];
       _res?.forEach((itemMenu) => {
-        console.log(itemMenu.branchName.toUpperCase());
         if (itemMenu.branchName.toUpperCase() === item.toUpperCase())
           obj.children.push(itemMenu);
       });

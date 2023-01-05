@@ -6,7 +6,9 @@ function MenuComponents({ menu }) {
     return items?.map((item) => {
       return (
         <li key={item.id}>
-          <Link href={`/category/${item.id}`}>{item.name}</Link>
+          <Link href={item.isBranch ? `/` : `/category/${item.id}`}>
+            {item.name}
+          </Link>
           {item.children && item.children.length > 0 ? (
             <ul key={Math.random()}>
               {item.children ? renderMenu(item.children) : null}
