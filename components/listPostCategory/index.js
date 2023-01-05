@@ -36,7 +36,7 @@ export default function ListPostCategory(props) {
   return (
     <div className="box-posts">
       <Title className="head-title" level={3}>
-        {data.name ? data.name : dataNewest?.data?.data[0]?.categoryName}
+        {data?.name ? data?.name : dataNewest?.data?.data[0]?.categoryName}
       </Title>
       <Row gutter={[16, 16]}>
         {dataNewest?.data?.data?.map((item) => {
