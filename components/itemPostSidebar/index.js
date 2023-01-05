@@ -22,7 +22,7 @@ export default function ItemPostSidebar(props) {
             alt=""
             layout="responsive"
             objectFit="cover"
-            height={60}
+            height={75}
             width={"100%"}
           />
         </Col>
