@@ -186,3 +186,7 @@ main {
   font-size: 14px;
   margin-bottom: 0 !important;
 }
+
+p>img {
+  max-width: 100%;
+}
