@@ -4,11 +4,8 @@ const nextConfig = {
   images: {
     domains: ["media.bet789.mobi"],
   },
-  // webpack5: true,
-  // webpack: (config) => {
-  //   config.resolve.fallback = { fs: false };
-  //   return config;
-  // },
 };
+const { withSuperjson } = require("next-superjson");
 
 module.exports = nextConfig;
+module.exports = withSuperjson()(nextConfig);

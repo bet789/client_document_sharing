@@ -4,11 +4,11 @@ import { Card } from "antd";
 import dayjs from "dayjs";
 import thumb from "../../assets/images/thumb-post.png";
 import Link from "next/link";
+import { EyeOutlined } from "@ant-design/icons";
 
 const { Meta } = Card;
 export default function Posts(props) {
   const { data } = props;
-  console.log("🚀 ~ file: index.js:11 ~ Posts ~ data", data);
   return (
     <>
       <Link href={`/post-detail/${data.id}`}>
@@ -32,8 +32,14 @@ export default function Posts(props) {
         >
           <Meta title={data?.title} description={data?.description} />
 
-          <div className="ant-card-meta-description date-post">
-            {dayjs(data?.createdTime).format("DD/MM/YYYY")}
+          <div
+            className="ant-card-meta-description date-post"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <span>{dayjs(data?.createdTime).format("DD/MM/YYYY")}</span>
+            <span>
+              <EyeOutlined /> {data?.counts}
+            </span>
           </div>
         </Card>
       </Link>

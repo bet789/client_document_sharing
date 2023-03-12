@@ -8,13 +8,14 @@ import { api } from "../helpers/config";
 import * as url from "../helpers/url_helper";
 import ListPostCategory from "../components/listPostCategory";
 import SkeletonPost from "../components/sekeletonPost";
+import { getPostPaging } from "../helpers/helper";
 const fetcher = (url) =>
   axios
     .get(url, {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     })
     .then((res) => res);
-export default function Home(props) {
+export default function Home({ data }) {
   const [params, setParams] = useState({ pageIndex: 1, pageSize: 12 });
 
   const {
@@ -34,7 +35,7 @@ export default function Home(props) {
 
   const showSkeleton = () => {
     var arrSkeleton = [];
-    for (let i = 0; i < 31; i++) {
+    for (let i = 0; i < 6; i++) {
       arrSkeleton.push(<SkeletonPost key={i} />);
     }
     return arrSkeleton;
@@ -78,15 +79,17 @@ export default function Home(props) {
   );
 }
 
-// export async function getServerSideProps({ req, res }) {
-//   res.setHeader(
-//     "Cache-Control",
-//     "public, s-maxage=10, stale-while-revalidate=59"
-//   );
-//   const _res = await getPostPaging();
-//   console.log("🚀 ~ file: index.js:46 ~ getServerSideProps ~ _res", _res);
+export async function getServerSideProps({ req, res }) {
+  console.log("🚀 ~ file: index.js:84 ~ getServerSideProps ~ req:", req);
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=30"
+  );
+  // const _params = { pageIndex: 1, pageSize: 12 };
+  // const data = await getPostPaging(_params);
+  // console.log("🚀 ~ file: index.js:90 ~ getServerSideProps ~ data:", data);
 
-//   return {
-//     props: { _res },
-//   };
-// }
+  return {
+    props: { data: {} },
+  };
+}

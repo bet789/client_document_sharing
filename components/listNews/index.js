@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Row, Col, Divider } from "antd";
 
 import Posts from "../posts";
+import ItemPostSidebar from "../itemPostSidebar";
 
 const { Title } = Typography;
 
@@ -17,6 +18,7 @@ export default function ListNews(props) {
           return (
             <Col key={item.id} xl={4} xs={24}>
               <Posts data={item} />
+              {/* <ItemPostSidebar key={item.id} data={item} /> */}
             </Col>
           );
         })}
