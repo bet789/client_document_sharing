@@ -18,8 +18,8 @@ if (typeof window !== "undefined") {
       BEARER + token.replace(/"/g, "");
 }
 
-// axios.defaults.baseURL = api.API_URL;
-axios.defaults.baseURL = api.API_URL_DEV;
+axios.defaults.baseURL = api.API_URL;
+// axios.defaults.baseURL = api.API_URL_DEV;
 // content type
 axios.defaults.headers.post["Content-Type"] = "application/json";
 

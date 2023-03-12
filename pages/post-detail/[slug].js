@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Row, Col, Typography, Space, Spin } from "antd";
-import { ClockCircleOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  ClockCircleOutlined,
+  UserOutlined,
+  EyeOutlined,
+} from "@ant-design/icons";
 import axios from "axios";
 import dayjs from "dayjs";
 import { getPostById, getPostPaging } from "../../helpers/helper";
@@ -84,7 +88,7 @@ export default function PostDetailPages(props) {
               <Title level={2}>{dataPost?.title}</Title>
               <Space
                 size={"middle"}
-                style={{ display: "flex", alignItems: "center" }}
+                style={{ display: "flex", alignItems: "flex-start" }}
               >
                 <Space align="midle" size={5}>
                   <ClockCircleOutlined />
@@ -97,7 +101,13 @@ export default function PostDetailPages(props) {
                   <UserOutlined />
                   <Paragraph>{dataPost?.userFullName}</Paragraph>
                 </Space>
+
+                <Space align="midle" size={5}>
+                  <EyeOutlined />
+                  <Paragraph>{dataPost?.counts}</Paragraph>
+                </Space>
               </Space>
+
               <Paragraph italic>{dataPost?.description}</Paragraph>
               <Image
                 src={dataPost?.thumbnail}
