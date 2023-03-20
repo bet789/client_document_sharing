@@ -83,7 +83,7 @@ export default function Home({ data }) {
                 showSkeleton()
               ) : (
                 <ListNews
-                  title={`KẾT QUẢ CHO TÌM KIẾM: "${router.query.search}" - Số bài: ${dataSearch?.data.totalRecord}`}
+                  title={`KẾT QUẢ CHO TÌM KIẾM: "${router.query.search}" - Số bài: ${dataSearch?.data?.totalRecord}`}
                   data={dataSearch?.data}
                 />
               )}
