@@ -49,20 +49,21 @@ axios.interceptors.response.use(
     // Do something with response error
 
     if (error.message === "Request failed with status code 403") {
-      notificationHook({
-        type: "error",
-        message: "Lỗi",
-        description: (
-          <>
-            <Paragraph> {error.message} </Paragraph>
-            <Paragraph>Vui lòng đăng nhập lại để tiếp tục sử dụng!</Paragraph>
-          </>
-        ),
-      });
+      // notificationHook({
+      //   type: "error",
+      //   message: "Lỗi",
+      //   description: (
+      //     <>
+      //       <Paragraph> {error.message} </Paragraph>
+      //       <Paragraph>Vui lòng đăng nhập lại để tiếp tục sử dụng!</Paragraph>
+      //     </>
+      //   ),
+      // });
 
-      setTimeout(function () {
-        window.location.replace("/logout");
-      }, 3000);
+      // setTimeout(function () {
+      //   window.location.replace("/logout");
+      // }, 3000);
+      window.location.replace("/logout");
       return Promise.reject(error);
     }
   }
